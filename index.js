@@ -9,13 +9,13 @@ const password = typeof(PASSWORD)!="undefined" ? PASSWORD
     : 'AoEiuV020 yes'
 // 短链超时，单位毫秒，支持整数乘法，0表示不设置超时，
 const shorten_timeout = typeof(SHORTEN_TIMEOUT)!="undefined" ? SHORTEN_TIMEOUT.split("*").reduce((a,b)=>parseInt(a)*parseInt(b),1)
-    : (0 * 0 * 0)
+    : (1000 * 60 * 10)
 // 默认短链key的长度，遇到重复时会自动延长，
 const default_len = typeof(DEFAULT_LEN)!="undefined" ? parseInt(DEFAULT_LEN)
-    : 4
+    : 6
 // 为true开启演示，否则无密码且非白名单请求不受理，是则允许访客试用，超时后失效，
 const demo_mode = typeof(DEMO_MODE)!="undefined" ? DEMO_MODE === 'true'
-    : 
+    : true
 // 为true自动删除超时的演示短链接记录，否则仅是标记过期，以便在后台查询历史记录，
 const remove_completely = typeof(REMOVE_COMPLETELY)!="undefined" ? REMOVE_COMPLETELY === 'true'
     : true
